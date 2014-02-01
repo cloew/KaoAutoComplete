@@ -9,6 +9,8 @@ class PythonPackage:
         self.path = path
         self.name = os.path.basename(path)
         
+        self.childPackages = []
+        
     @property
     def package_name(self):
         """ Return the qualified package name """
@@ -19,9 +21,9 @@ class PythonPackage:
         
     def __cmp__(self, other):
         """ Compare self to other """
-        if self.name == other.name:
+        if self.package_name == other.package_name:
             return 0
-        elif self.name < other.name:
+        elif self.package_name < other.package_name:
             return -1
         else:
             return 1
