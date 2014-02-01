@@ -9,7 +9,11 @@ class PythonPackage:
         self.path = path
         self.name = os.path.basename(path)
         
-        self.childPackages = []
+        self.childPackages = {}
+        
+    def addChildPackage(self, child):
+        """ Add child """
+        self.childPackages[child.name] = child
         
     @property
     def package_name(self):
