@@ -1,3 +1,5 @@
+from python_package import PythonPackage
+
 from pbf.helpers.file_helper import IsDirectory
 from pbf.helpers.Python.python_helper import IsPythonDirectory
 
@@ -13,8 +15,7 @@ def main(args):
             for filename in os.listdir(path):
                 filename = os.path.join(path, filename)
                 if IsPythonDirectory(filename):
-                    # print "File is a Python Directory:", os.path.basename(filename)
-                    packages.append(os.path.basename(filename))
+                    packages.append(PythonPackage(filename))
                 # elif os.path.splitext(filename)[1] == '.py':
                     # print "File is a Python File:",  os.path.basename(filename)
                     
